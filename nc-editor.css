@@ -1,0 +1,178 @@
+#nc-editor {
+    width: 700px;
+    background: #cdcdcd;
+    padding: 7px;
+    padding-top: 20px;
+    border-radius: 12px;
+    position: relative;
+}
+
+#nc-editor::before,
+#nc-editor::after {
+    content: '';
+    background: black;
+    position: absolute;
+    top: 10px;
+    transform: translate(-50%, -50%);
+}
+
+#nc-editor::before {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    left: 48%;
+}
+
+#nc-editor::after {
+    width: 25px;
+    height: 9px;
+    border-radius: 50px;
+    left: calc(49% + 20px);
+}
+
+.nc-editor-window {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #4e4e4e;
+}
+
+.nc-editor-window .nc-title-bar {
+    border-bottom: 1px solid #4e4e4e;
+    padding: .7em 0.95em;
+    display: flex;
+    align-items: center;
+    gap: .3em;
+    background: hsl(218, 80%, 4.9%);
+}
+
+.nc-editor-window .nc-title-bar .nc-dot {
+    --dot-dim: 11.5px;
+    width: var(--dot-dim);
+    height: var(--dot-dim);
+    border-radius: 50%;
+}
+
+.nc-editor-window .nc-title-bar .nc-dot.nc-red-btn {
+    background: red;
+}
+
+.nc-editor-window .nc-title-bar .nc-dot.nc-yellow-btn {
+    background: yellow;
+}
+
+
+.nc-editor-window .nc-title-bar .nc-dot.nc-green-btn {
+    background: green;
+}
+
+
+.nc-editor-window .nc-code-prompt {
+    font-size: 1.08rem;
+    position: relative;
+}
+
+.nc-editor-window .nc-code-prompt .CodeMirror {
+    padding-top: 1em;
+    padding-left: .8em;
+    font-family: "Lucida Console";
+    line-height: 145%;
+    min-height: 100px;
+    height: 400px;
+}
+
+.nc-editor-window .nc-code-prompt .CodeMirror ::-webkit-scrollbar {
+    width: 12px;
+    background: #111;
+}
+
+.nc-editor-window .nc-code-prompt .CodeMirror ::-webkit-scrollbar-thumb {
+    background: #444;
+}
+
+.nc-editor-window .nc-code-prompt .CodeMirror ::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+.nc-editor-window .nc-code-prompt textarea.nc-code {
+    display: block;
+    background: none;
+    border: none;
+    color: white;
+    resize: none;
+    width: 100%;
+    height: 100%;
+    padding: 1.1em 2.3em;
+}
+
+.nc-editor-window .nc-code-prompt textarea.nc-code:focus {
+    outline: none;
+}
+
+.nc-editor-window .nc-funcs {
+    display: flex;
+    align-items: center;
+    gap: .75em;
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+}
+
+.nc-editor-window .nc-code-prompt .nc-funcs>button {
+    display: block;
+    border: none;
+    background: green;
+    height: 35px;
+    max-width: 35px;
+    min-width: 35px;
+    border-radius: 50%;
+    transition: .4s;
+    cursor: pointer;
+    box-shadow: 5px 2px 9px -6px #000;
+    position: relative;
+}
+
+.nc-editor-window .nc-code-prompt .nc-funcs>button:hover {
+    filter: brightness(1.2);
+}
+
+.nc-editor-window .nc-code-prompt .nc-funcs>button.disabled {
+    filter: brightness(.7);
+    cursor: default;
+}
+
+.nc-editor-window .nc-code-prompt .nc-funcs>button svg {
+    width: 68%;
+    stroke: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.nc-editor-window .nc-code-prompt .nc-state-message {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    padding: .755em;
+    font-size: .8em;
+    border: 1px solid #5e5e5e;
+    position: absolute;
+    bottom: 25px;
+    width: 270px;
+    left: 25px;
+    box-shadow: 4px 4px 9px -5px #000;
+    transform: translateY(calc(35px + 100%));
+    transition: .4s;
+    opacity: 0;
+    background: #333;
+}
+
+.nc-editor-window .nc-code-prompt .nc-state-message.show {
+    transform: unset;
+    opacity: 1;
+}
+
+.nc-editor-window .nc-code-prompt .nc-state-message svg {
+    width: 1.4em;
+    stroke: #00c500;
+}
